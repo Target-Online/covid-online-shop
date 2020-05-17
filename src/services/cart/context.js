@@ -10,20 +10,39 @@ export default function CartProvider({ children }) {
   function addToCart(item) {
     //this is our state setter we can access previous state using callback function
     // ...prevState (built in object)  we spreading privious state on to a new array we working with a mutable data structure append item into array
-    setItems((prevState) => [...prevState, item]);
+
+    let index = items.findIndex((_item) => _item.id === item.id);
+    if (index >= 0) {
+      items[index] = item;
+      setItems(() => [...items]);
+    } else {
+      items.push(item);
+      setItems(() => [...items]);
+    }
   }
 
   function removeFromCart(id) {
-    setItems((prevState) => prevState.filter((x) => x.id !== id));
+    let cart = items.filter((x) => x.id !== id);
+    setItems([...cart]);
   }
 
-  function decreaseProductQauntity(id) {
-    const index = (prevState) => prevState.indexOf((x) => x.id === id);
-    setItems((prevState) => prevState.splice(index, 1));
+  function getProduct(id) {
+    return productWithQauntities(items).find((x) => x.id === id);
   }
 
-  function totalProducts(items) {
-    return items.length;
+  function decreaseProductQauntity(item) {
+    let index = items.findIndex((_item) => _item.id === item.id);
+    if (index >= 0) {
+      items[index] = item;
+      setItems(() => [...items]);
+    }
+  }
+
+  function totalProducts(cartProducts) {
+    return cartProducts.reduce((sum, p) => {
+      sum += p.quantity;
+      return sum;
+    }, 0);
   }
 
   //reduce gives use new object acc is the accumilator and item is what you adding up so we adding up the second item is starting value empty array
@@ -33,10 +52,9 @@ export default function CartProvider({ children }) {
       const found = acc.find((_item) => _item.id === item.id);
       //if value is found in our items increment it quantity field else add new value into our items and give it a qauntity equals to 1
       if (found) {
-        found.qauntity = found.qauntity + 1;
+        found.quantity = found.quantity + 1;
       } else {
         acc.push({
-          qauntity: 1,
           ...item, // all the values that in item pass the into this new object it same as .copy in scala}
         });
       }
@@ -45,7 +63,7 @@ export default function CartProvider({ children }) {
   }
 
   function totalPrice(cartProducts) {
-   return cartProducts.reduce((sum, p) => {
+    return cartProducts.reduce((sum, p) => {
       sum += p.price * p.quantity;
       return sum;
     }, 0);
@@ -60,9 +78,10 @@ export default function CartProvider({ children }) {
         productWithQauntities: productWithQauntities(items),
         totalPrice: totalPrice(items),
         totalProducts: totalProducts(items),
+        getProduct: getProduct,
         addToCart,
         removeFromCart,
-        decreaseProductQauntity
+        decreaseProductQauntity,
       }}
     >
       {children}

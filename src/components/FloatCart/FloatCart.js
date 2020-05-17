@@ -55,6 +55,7 @@ export default class FloatCart extends Component {
       removeFromCart,
       totalPrice,
       totalProducts,
+      getProduct,
     } = this.props;
     const products = productWithQauntities.map((p) => {
       return (
@@ -63,6 +64,7 @@ export default class FloatCart extends Component {
           addToCart={addToCart}
           decreaseProductQauntity={decreaseProductQauntity}
           removeFromCart={removeFromCart}
+          getProduct={getProduct}
         />
       );
     });

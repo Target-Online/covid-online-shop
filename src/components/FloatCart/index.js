@@ -13,6 +13,7 @@ export default function HookingState() {
       removeFromCart={cartCtx.removeFromCart}
       totalPrice={cartCtx.totalPrice}
       totalProducts={cartCtx.totalProducts}
+      getProduct={cartCtx.getProduct}
     />
   );
 }

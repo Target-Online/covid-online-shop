@@ -1,7 +1,7 @@
 const products =  [
     {
-      "id": 12,
-      "qauntity": 0,
+      "id": 1,
+      "quantity": 0,
       "sku": "5619496040738316_1",
       "title": "Cat Tee Black T-Shirt",
       "description": "4 MSL",
@@ -15,8 +15,8 @@ const products =  [
     },
 
     {
-      "id": 13,
-      "qauntity": 0,
+      "id": 2,
+      "quantity": 0,
       "sku": "8552515751438644_1",
       "title": "Dark Thug Blue-Navy T-Shirt",
       "description": "",
@@ -30,8 +30,8 @@ const products =  [
     },
 
     {
-      "id": 14,
-      "qauntity": 0,
+      "id": 3,
+      "quantity": 0,
       "sku": "9197907543445676_1",
       "title": "Sphynx Tie Dye Wine T-Shirt",
       "description": "GPX Poly 1",
@@ -45,8 +45,8 @@ const products =  [
     },
 
     {
-      "id": 15,
-      "qauntity": 0,
+      "id": 4,
+      "quantity": 0,
       "sku": "10412368723880252_1",
       "title": "Skuul",
       "description": "Treino 2014",
@@ -60,8 +60,8 @@ const products =  [
     },
 
     {
-      "id": 11,
-      "qauntity": 0,
+      "id": 5,
+      "quantity": 0,
       "sku": "10547961582846888_1",
       "title": "Wine Skul T-Shirt",
       "description": "",
@@ -75,8 +75,8 @@ const products =  [
     },
 
     {
-      "id": 16,
-      "qauntity": 0,
+      "id": 6,
+      "quantity": 0,
       "sku": "10686354557628304_1",
       "title": "Short Sleeve T-Shirt",
       "description": "",
@@ -90,8 +90,8 @@ const products =  [
     },
 
     {
-      "id": 0,
-      "qauntity": 0,
+      "id": 7,
+      "quantity": 0,
       "sku": "11033926921508488_1",
       "title": "Cat Tee Black T-Shirt",
       "description": "14/15 s/nº",
@@ -105,8 +105,8 @@ const products =  [
     },
 
     {
-      "id": 1,
-      "qauntity": 0,
+      "id": 8,
+      "quantity": 0,
       "sku": "11600983276356164_1",
       "title": "Sphynx Tie Dye Grey T-Shirt",
       "description": "14/15 s/nº",
@@ -120,8 +120,8 @@ const products =  [
     },
 
     {
-      "id": 2,
-      "qauntity": 0,
+      "id": 9,
+      "quantity": 0,
       "sku": "11854078013954528_1",
       "title": "Danger Knife Grey",
       "description": "14/15 s/nº",
@@ -135,8 +135,8 @@ const products =  [
     },
 
     {
-      "id": 3,
-      "qauntity": 0,
+      "id": 10,
+      "quantity": 0,
       "sku": "12064273040195392_1",
       "title": "White DGK Script Tee",
       "description": "2014 s/nº",

@@ -18,7 +18,6 @@ class CartProduct extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      product: this.props.product,
       isMouseOver: false
     };
   }
@@ -32,20 +31,21 @@ class CartProduct extends Component {
   };
 
   handleOnIncrease = () => {
-    const { addToCart } = this.props;
-    const { product } = this.state;
+    const { addToCart, product } = this.props;
+    product.quantity = product.quantity + 1;
     addToCart(product);
+
   }
 
   handleOnDecrease = () => {
-    const { decreaseProductQauntity } = this.props;
-    const { product } = this.state;
+    const { decreaseProductQauntity, product } = this.props;
+    product.quantity = product.quantity - 1;
     decreaseProductQauntity(product);
   }
 
   render() {
       
-    const { product } = this.state;
+    const { product } = this.props;
     const {removeFromCart} = this.props
 
     const classes = ['shelf-item'];
