@@ -1,13 +1,18 @@
+import 'babel-polyfill'
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
+import CartProvider from "./services/cart/context"
+import App from './components/App';
+import './index.scss';
 
+
+//Note we wrapped cartProvider around top most component this will expose our contest/ global state without passing props
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <CartProvider>
+       <App />
+  </CartProvider>
+,
   document.getElementById('root')
 );
 
