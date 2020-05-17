@@ -45,7 +45,7 @@ export default function CartProvider({ children }) {
   }
 
   function totalPrice(cartProducts) {
-    cartProducts.reduce((sum, p) => {
+   return cartProducts.reduce((sum, p) => {
       sum += p.price * p.quantity;
       return sum;
     }, 0);

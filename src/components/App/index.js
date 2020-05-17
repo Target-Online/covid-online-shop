@@ -3,7 +3,7 @@ import React from 'react';
 import Shelf from '../Shelf';
 //import Filter from '../Shelf/Filter';
 //import GithubCorner from '../github/Corner';
-//import FloatCart from '../FloatCart';
+import FloatCart from '../FloatCart/';
 
 const App = () => (
   <React.Fragment>
@@ -12,7 +12,7 @@ const App = () => (
       {/**<Filter />**/}
       <Shelf />
     </main>
-    {/**<FloatCart />**/}
+    <FloatCart />
   </React.Fragment>
 );
 

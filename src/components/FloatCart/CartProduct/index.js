@@ -1,10 +1,10 @@
-import React, { useContext , Component} from "react"; //useContext is the hook used to allow use context provider
+import React, { Component} from "react"; //useContext is the hook used to allow use context provider
 
-import { CartContext } from "../../services/cart/context";
+//import { CartContext } from "../../../services/cart/context";
 import PropTypes from 'prop-types';
 
 import Thumb from './../../Thumb';
-import { formatPrice } from '../../../services/util';
+import { formatPrice } from '../../../services/utils';
 
 class CartProduct extends Component {
   static propTypes = {
@@ -32,23 +32,21 @@ class CartProduct extends Component {
   };
 
   handleOnIncrease = () => {
-    const { changeProductQuantity } = this.props;
+    const { addToCart } = this.props;
     const { product } = this.state;
-    product.quantity = product.quantity + 1;
-    changeProductQuantity(product);
+    addToCart(product);
   }
 
   handleOnDecrease = () => {
-    const { changeProductQuantity } = this.props;
+    const { decreaseProductQauntity } = this.props;
     const { product } = this.state;
-    product.quantity = product.quantity - 1;
-    changeProductQuantity(product);
+    decreaseProductQauntity(product);
   }
 
   render() {
       
-    const { removeProduct } = this.props;
     const { product } = this.state;
+    const {removeFromCart} = this.props
 
     const classes = ['shelf-item'];
 
@@ -62,7 +60,7 @@ class CartProduct extends Component {
           className="shelf-item__del"
           onMouseOver={() => this.handleMouseOver()}
           onMouseOut={() => this.handleMouseOut()}
-          onClick={() => removeProduct(product.id)}
+          onClick={() => removeFromCart(product.id)}
         />
         <Thumb
           classes="shelf-item__thumb"
@@ -79,9 +77,8 @@ class CartProduct extends Component {
         <div className="shelf-item__price">
           <p>{`${product.currencyFormat}  ${formatPrice(product.price)}`}</p>
           <div>
-            <button onClick={this.handleOnDecrease} disabled={product.quantity === 1 ? true : false} className="change-product-button">-</button>
-            <button onClick={this.handleOnIncrease} className="change-product-button">+</button>
-          </div>
+          <button onClick={this.handleOnDecrease} disabled={product.quantity === 1 ? true : false} className="change-product-button">-</button>
+            <button onClick={this.handleOnIncrease} className="change-product-button">+</button>          </div>
         </div>
       </div>
     );
